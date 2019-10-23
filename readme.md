@@ -13,6 +13,7 @@ import ApiTester from "@bcwdev/vue-api-tester"
 // Install ApiTester by passing in vue-router
 // navigate in browser to #/test-runner
 ApiTester.install(Vue, { router }) 
+// SEE Suite Loading below
 import "./tests/TestLoader"
 
 new Vue({
@@ -102,3 +103,17 @@ export class ValuesSuite extends Suite {
 The TestSuites can run all tests at once and individually. All TestExecution is handled with `try catch` blocks so you don't need to worry about describing failures explicitly. Custom Errors can be thrown and displayed.
 
 The `this` context inside of a test function if written with arrow functions will be bound to the scope of the suite itself not the individual test. This is intentionally done so you can build up the suite object independently of each individual test. 
+
+### Suite Loading
+
+You only need to instantiate your Suites and they will automatically be tracked by the test runner.
+
+a simple approach is to create a loader file that instantiates each Suite that can be imported into main
+
+```javascript
+import { ValuesSuite } from "./values";
+import { TodosSuite } from "./todos";
+
+new ValuesSuite()
+new TodosSuite()
+```
