@@ -1,6 +1,6 @@
 <template>
-  <div class="card p-3" :class="suite.success ? 'border-success' : 'border-danger'">
-    <div>
+  <div class="card p-3 text-left" :class="suite.success ? 'border-success' : 'border-danger'">
+    <div class="no-select">
       <small class="mr-3">status: {{passing.length}}/{{suite.tests.length}}</small>
       <em class="action text-info" @click="toggleSuite">{{showTests ? 'close':'view'}} suite</em>
     </div>

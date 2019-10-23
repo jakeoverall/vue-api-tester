@@ -1,5 +1,5 @@
 <template>
-  <div class="container-fluid mt-2">
+  <div class="container-fluid">
     <div class="row">
       <div class="col-12 mb-3">
         <div class="card mt-3 p-2 border-secondary">
