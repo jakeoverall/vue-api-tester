@@ -6,7 +6,13 @@
           <div class="d-flex align-items-center justify-content-between">
             <span>API Test Runner</span>
             <button class="btn btn-secondary" @click="runAll">
-              <span>Run All</span>
+              <span
+                >Run All
+                <i
+                  v-if="running"
+                  class="fa fa-fw fa-spin fa-spinner ml-2"
+                ></i
+              ></span>
             </button>
           </div>
         </div>
@@ -35,7 +41,8 @@ export default {
   name: "TestRunner",
   data() {
     return {
-      suites: TestRunner.suites
+      suites: TestRunner.suites,
+      running: false
     };
   },
   watch: {
@@ -47,11 +54,14 @@ export default {
     }
   },
   methods: {
-    runAll() {
+    async runAll() {
       try {
-        Promise.all(this.suites.map(s => s.runTests.call(s)));
+        this.running = true;
+        await TestRunner.RunAll();
       } catch (e) {
         console.error(e);
+      } finally {
+        this.running = false;
       }
     }
   },
