@@ -1,6 +1,6 @@
 {
   "name": "@bcwdev/vue-api-tester",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "files": ["index.js", "readme.md", "package.json", "lib"],
   "main": "index.js",
   "dependencies": {

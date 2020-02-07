@@ -4,7 +4,7 @@
       class="card mb-1"
       v-for="test in tests"
       :class="test.success ? 'border-success' : 'border-danger'"
-      :key="test.name"
+      :key="test.id"
     >
       <div class="card-header text-light" :class="test.success ? 'bg-success' : 'bg-danger'">
         <div class="d-flex justify-content-between align-items-center action" @click="toggle(test.name)">
